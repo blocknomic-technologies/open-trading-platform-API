@@ -4,9 +4,9 @@
     "description": "no",
     "main": "debug.js",
     "dependencies": {
-        "amazon-cognito-identity-js": "^3.0.7",
+        "amazon-cognito-identity-js": "^3.0.13",
         "aws-iot-device-sdk": "^2.2.1",
-        "aws-sdk": "^2.340.0",
+        "aws-sdk": "^2.478.0",
         "axios": "^0.19.0",
         "bitgo": "^4.43.0",
         "bluebird": "^3.5.1",
