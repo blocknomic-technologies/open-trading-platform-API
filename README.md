@@ -1,6 +1,5 @@
 
-# Open Trading Platform - UI
-
+# Open Trading Platform - API
 Open Trading Platform is a Unified web application; meta trading platform for cryptocurrency Traders and Developers to run on your browser. It allows you to trade across 5 cryptocurrency exchanges for now:
 
   - Bitfinex (Spot trading)
