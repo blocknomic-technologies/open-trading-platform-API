@@ -127,7 +127,7 @@ In this section we will explain all the available feature on the easy to use UI 
  4. Trezor integration
  5. Deposits
  6. Margin trading
- 7. System and server status
+ 7. Server status
 
 You can also visit our youtube video to see how to use the entire system. (Coming soon)
 
@@ -154,13 +154,12 @@ You can get wallet address directly from the UI by going funds on the navbar and
 ##### Margin trading
 Go to the markets page and choose Derivatives market at the bottom. More info available on the WIKI and youtube. (Coming soon)
 
-##### System and Server status
-On the top right of the nav bar there are two status alerts. One to show the status of the exchanges and there apis and websockets the other shows if your frontend has successfully connected to the server. 
+##### Server status
+On the top right of the nav bar there is a status bar that allows you to see if your local server is on or not. Green means connected, Orange means Not connected.
 
 ### How to recommend Platform features to us?
 
-- If you are a developer you can follow the instructions on the WIKI page. 
-- If you are a trader you can drop us an email at features@blocknomic.com if we get enough inquiries regarding the update we will look into it. 
+- Just visit the issues tab on this github rep and choose the features template. 
 
 ### Developers, Contributors and how to contribute
 
