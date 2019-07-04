@@ -16,7 +16,6 @@ const bitmexAPIs = MODEL("authBitmexAPI");
 class Users {
 
     async getBalancePairExchangeWise(pair, exchange, orderType, excPair) {
-        console.log(arguments)
         exchange = exchange.toLowerCase();
         let pairArr = pair.split("/");
 

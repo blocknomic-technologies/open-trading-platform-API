@@ -35,8 +35,6 @@ async function new_order() {
                 break;
             case 'bitmex':
                 response = await bitmex.orders(this.body);
-                console.log(response);
-
                 break;
         }
         responseBuilder.sendResponse(
@@ -84,7 +82,6 @@ async function cancel_order() {
 }
 
 async function get_active_orders() {
-    console.log('active orders');
     let activeOrders;
     if (this.body.exchange !== '' && this.body.exchange) {
         switch (this.body.exchange) {
@@ -113,7 +110,6 @@ async function get_active_orders() {
         let binanceWallet = (await binance.getAllOpenOrders(this.body.pair)) || [];
         let bequant = (await bequantWallet.activeOrders(this.body.pair)) || [];
         let bitmexOrders = await bitmex.getOpenOrderHistory(this.body.pair) || [];
-        // console.log(bitfinex);
         activeOrders = bitfinex.concat(binanceWallet, bequant, bitmexOrders);
     }
     responseBuilder.sendResponse(
@@ -130,7 +126,6 @@ async function get_active_orders() {
 async function calculate_prices() {
     try {
         let prices = {};
-        console.log(this.body.origPair);
         switch (this.body.selectedExchange.text.toLowerCase()) {
             case 'bitfinex':
                 prices = await bitfinexWallet.getCurrentPrice(this.body.excPair);
@@ -163,7 +158,6 @@ async function calculate_prices() {
 async function get_open_positions() {
     try {
         let response = '';
-        console.log(this.body);
         if (!this.body.exchange) {
             this.body.exchange = 'bitfinex';
         }

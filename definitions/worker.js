@@ -15,6 +15,14 @@ var logger = F.worker('logger', 'logger');
 /**
  * @var {*} mqtt
  */
+console.log('Starting server');
+console.log('---------------');
+console.log('Please ensure all the exchanges you wish to use the API keys are added');
+console.log("HAPPY TRADING");
+console.log('')
+console.log('')
+console.log('')
+
 let mqtt;
 if (F.isDebug) {
     mqtt = F.worker('mqtt', 'mqtt');

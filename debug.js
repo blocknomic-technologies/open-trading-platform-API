@@ -9,7 +9,6 @@ const options = {};
 
 //options.ip = '172.31.41.190';
 options.port = '9001';
-console.log(options.port);
 
 // options.config = { name: 'Total.js' };
 // options.https = { key: fs.readFileSync('keys/agent2-key.pem'), cert: fs.readFileSync('keys/agent2-cert.pem')};

@@ -60,7 +60,6 @@ class Encrypt {
          * @return [{Object}] Encrypted text
          */
     aes256(text, password) {
-        console.log(text, password);
         let cipher = crypto.createCipher('aes-256-ctr', password)
         let crypted = cipher.update(text, 'utf8', 'hex')
         crypted += cipher.final('hex');

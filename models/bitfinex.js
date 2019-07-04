@@ -82,7 +82,6 @@ class BitfinexOrders {
 
     async handleWsMessage(msg) {
         let recievedMsg = JSON.parse(msg.data);
-        console.log(recievedMsg);
         if(recievedMsg.event === 'error' && recievedMsg.code=== 10100)  {
             await MQTTService.publishUpdates({
                 type: 'error',
@@ -117,7 +116,6 @@ class BitfinexOrders {
                     this.handleNotifications('Success', `${type} order for ${pair} executed @ ${price}(${amount})`,'at');
                     break;
                 case 'tu':
-                    // console.log(recievedMsg);
                     break;
                 case 'oc':
                     let data2 = recievedMsg[2];
@@ -178,7 +176,6 @@ class BitfinexOrders {
                 "cid_date": CID_DATE
             }
         ];
-        console.log(payload);
         this.wss.send(JSON.stringify(payload));
     }
 

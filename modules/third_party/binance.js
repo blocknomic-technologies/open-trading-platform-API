@@ -15,7 +15,6 @@ const axios = require('axios');
  * @default
  */
 const baseApi = 'https://api.binance.com/';
-// console.log('data');
 
 class binanceModule {
     /**

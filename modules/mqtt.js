@@ -32,7 +32,6 @@ class MQTTService {
     async publishUpdates(payload) {
             try {
                 // let mqttKey = await userService.get_mqtt_key(process.env.USERNAME);
-                console.log(payload)
                 if (F.workers.mqtt) {
                     F.workers.mqtt.send({
                         type: 'publishBitfinexNotifications',

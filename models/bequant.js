@@ -14,9 +14,7 @@ class BequantOrders {
     }
 
     async getApiKeys() {
-
-        this.apiParams = await apiModel.getApiKeys(process.env.USERNAME, 'bequant');
-        // console.log(this.apiParams);
+        this.apiParams = await apiModel.getApiKeys();
     }
  
     webSocketConnection() {
@@ -25,7 +23,6 @@ class BequantOrders {
 
     async connect() {
         try {
-            console.log('once twice');
             await this.getApiKeys();
             this.wss = this.webSocketConnection();
             this.wss.onopen = () => this.handleWsOpen();

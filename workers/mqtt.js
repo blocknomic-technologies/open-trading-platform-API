@@ -9,7 +9,6 @@ let ws = '';
 device.on('connection', (wes) => {
     ws = wes;
     ws.on('message', function(message) {
-        console.log(message);
         var msg = JSON.parse(message);
         switch (msg.type) {
             case 'ping':
@@ -39,7 +38,6 @@ device.on('connection', (wes) => {
 device.on('error', console.log)
 
 process.on('message', (message) => {
-    console.log(message);
     switch (message.type) {
         case 'publishLedger':
             return ws.send(JSON.stringify(message.payload));

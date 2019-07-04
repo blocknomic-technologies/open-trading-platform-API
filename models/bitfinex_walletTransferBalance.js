@@ -415,7 +415,6 @@ class bitfinex_walletTransferBalance {
     async pairWiseBalance(pairArr) {
         let balances = await this.bitfinexWalletBalance();
         let array = [];
-        console.log(balances);
         balances.forEach((ele) => {
             if (ele[1] === pairArr[0] || ele[1] === pairArr[1]) {
                 let obj = {

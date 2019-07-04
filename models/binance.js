@@ -44,7 +44,6 @@ class BinanceOrders {
 
     async handleWsMessage(msg) {
         let data = JSON.parse(msg.data);
-        console.log(data);
         if (data.e === 'executionReport') {
             let NotfiyMsg = `Binance ${data.S} ${data.o} order with cid ${data.E} is ${data.X}(${data.x}) reason ${data.r}`;
             await MQTTService.publishUpdates({
@@ -118,18 +117,15 @@ class BinanceOrders {
                 resolve(error.response.data);
             });
         });
-        // console.log(newOrderResponse);
         if (newOrderResponse.msg) {
             newOrderResponse = await this.processResponse(newOrderResponse.msg, opt.pair);
         }
-        // console.log(newOrderResponse);
 
         return newOrderResponse;
 
     }
 
     async cancelOrder(symbol, cid) {
-        console.log(arguments);
         let endPoint = '/api/v3/order';
         let opt = {
             symbol: 'BTCUSDT',

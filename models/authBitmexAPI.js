@@ -30,7 +30,6 @@ class authBitmexAPI {
 
     async handleMessage(msg, self) {
         let parsedMsg = JSON.parse(msg);
-        console.log(parsedMsg);
         switch (parsedMsg.table) {
             case 'position':
                 if (parsedMsg.action === 'update') {
@@ -38,7 +37,6 @@ class authBitmexAPI {
                 }
                 break;
             case 'order':
-                console.log(parsedMsg);
                 if (parsedMsg.action === 'update') {
                     if (parsedMsg.data[0].text) {
                         await this.handleNotifications('Success', parsedMsg.data[0].text, 'at');
@@ -80,7 +78,6 @@ class authBitmexAPI {
             case 'transact':
                 break;
             case 'default':
-                console.log(parsedMsg);
                 break;
         }
     }
@@ -105,7 +102,6 @@ class authBitmexAPI {
     }
 
     async handleOpen(self) {
-        console.log('Connected to bitmex realtime');
         await self.authenticateWs();
         await self.subscribeToAuthData();
         self.authInterval = setInterval(() => {
@@ -125,7 +121,6 @@ class authBitmexAPI {
         let apiSecret = "";
         apiKey = keys.keys.bitmexAPI;
         apiSecret = keys.keys.bitmexSecret;
-        console.log(keys);
         return {
             apiKey,
             apiSecret
@@ -134,10 +129,8 @@ class authBitmexAPI {
 
     async authenticateWs() {
         let apiObj = await this.getApiKeys();
-        console.log(apiObj, 'bitmex');
         let verb = 'GET',
             path = '/realtime';
-        console.log(apiObj);
         const expires = Math.round(new Date().getTime() / 1000) + (60 * 60);
         const signature = crypto.createHmac('sha256', apiObj.apiSecret).update(verb + path + expires).digest('hex');
         let payload = {
@@ -252,7 +245,6 @@ class authBitmexAPI {
 
     async orders(data) {
         try {
-            console.log(data);
             let execInst = '';
             let side = 'Sell';
             if (data.flags.trigger) {
@@ -293,8 +285,6 @@ class authBitmexAPI {
             }
 
             Object.keys(orderParams).forEach(key => !orderParams[key] ? delete orderParams[key] : '');
-
-            console.log(orderParams);
 
             return await this.getBitmexData('POST', '/api/v1/order', orderParams, )
         } catch (err) {
@@ -341,7 +331,6 @@ class authBitmexAPI {
                     "open": true
                 }
             }, );
-            console.log(response);
             return JSON.parse(response).map((ele) => {
                 return {
                     cid: ele.orderID,
@@ -499,11 +488,9 @@ class authBitmexAPI {
     }
 
     dateToDisplayTime(date) {
-        // date = new Date(date);
         let hours = date.getHours();
         let minutes = date.getMinutes();
         let seconds = date.getSeconds();
-        // console.log(hours, minutes, seconds);
         return `${(hours < 10 ? '0' : '')}${hours}:${(minutes < 10 ? '0' : '')}${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
     }
 

@@ -237,7 +237,6 @@ async function binance_withdraw_history() {
 
 async function bequant_deposit_address() {
     try {
-        console.log(this.body, );
         responseBuilder.sendResponse(
             200,
             true,
@@ -336,7 +335,6 @@ async function bequant_trading_wallet_balance() {
 
 async function bequant_main_wallet_balance() {
     try {
-        console.log();
         responseBuilder.sendResponse(
             200,
             true,
