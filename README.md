@@ -125,7 +125,7 @@ For Production environment (Coming soon)
 ### Download
 
 Easiest way to run the system, perfect for traders/non-developers.
-visit https://opentradingplatform.org/traders.html
+visit https://opentradingplatform.org/trader.html
 
 ## Platform Features
 
